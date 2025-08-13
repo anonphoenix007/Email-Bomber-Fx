@@ -7,7 +7,7 @@
 from os import urandom
 import smtplib
 from getpass import getpass
-import sys
+import sys as ss
 from time import sleep
 
 print('                                                                    ')
@@ -58,16 +58,17 @@ try:
         server.sendmail(email, to, msg)
         print("\rE-mails sent: %i" % i)
         sleep(1)
-        sys.stdout.flush()
+        ss.stdout.flush()
     server.quit()
     print('\n Done !!!')
-    sys.exit()
+    ss.exit()
 except KeyboardInterrupt:
     print('[-] Canceled')
-    sys.exit()
+    ss.exit()
 except smtplib.SMTPAuthenticationError:
     print('[!] The username or password you entered is incorrect')
-    sys.exit()
+    ss.exit()
 except smtplib.SMTPConnectError:
     print('\n[!] Failed to connect with the SMTP server')
-    sys.exit()
+    ss.exit()
+    
